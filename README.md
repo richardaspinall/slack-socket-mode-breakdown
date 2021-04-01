@@ -24,7 +24,7 @@ Specifically the app will listen to app mentions in a channel that the associate
 
 ## Slack app configuration
 
-1. In the Slack App configuration, head to the **Socket Mode** tab and toggle **Enable Socket Mode**
+1. On your Slack App configuration page, head to the **Socket Mode** tab and toggle **Enable Socket Mode**
 2. Give the app-level token a name of **SOCKETMODE** (or anything you like) and click **Generate**
 3. Note the _token_ that is generated (you can find this later under the **Basic Information** tab > **App-Level Tokens**)
 4. Click on the **Event Subscriptions** tab and toggle **Enable Events**
