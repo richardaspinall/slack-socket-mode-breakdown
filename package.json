@@ -1,7 +1,7 @@
 {
-  "name": "socket-mode",
+  "name": "raspinall-socket-mode-tester",
   "version": "1.0.0",
-  "description": "Socket Mode tester app",
+  "description": "Tester app for socket mode (non-bolt)",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
