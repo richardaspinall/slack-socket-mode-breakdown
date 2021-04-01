@@ -1,19 +1,19 @@
 require('dotenv').config();
 
-// Superagent for HTTP requests
+// Superagent package for HTTP requests
 const superagent = require('superagent');
 
-// WebSocket for websockets support
+// WebSocket package for websockets support
 const WebSocket = require('websocket').client;
 
 // Create a WebSocket client
 const client = new WebSocket();
 
-// Returns a WebSocket URL to connect to
+// Gets a URL from Slack to create a websocket through
 async function appsConnectionOpen() {
   const httpHeaders = {
     'Content-type': 'application/json; charset=utf-8',
-    Authorization: `Bearer ${process.env.SOCKETTOKEN}`,
+    Authorization: `Bearer ${process.env.SOCKETMODE}`,
   };
   const methodUrl = 'https://slack.com/api/apps.connections.open';
   const res = await superagent.post(methodUrl).set(httpHeaders).send({});
@@ -31,28 +31,36 @@ client.on('connectFailed', function (error) {
 
 client.on('connect', function (connection) {
   console.log('WebSocket Client Connected');
+
+  // Log connection closing or errors
   connection.on('error', function (error) {
     console.log('Connection Error: ' + error.toString());
   });
   connection.on('close', function () {
     console.log('echo-protocol Connection Closed');
   });
+
+  // Handle incoming and outgoing messages on the socket
   connection.on('message', function (message) {
-    let messageObject = JSON.parse(message.utf8Data);
+    const socketMessage = JSON.parse(message.utf8Data);
 
-    console.log(messageObject);
-
-    if (messageObject.envelope_id) {
-      console.log(messageObject.envelope_id);
+    // Send back envelope_id as acknowledgment
+    if (socketMessage.envelope_id) {
       connection.sendUTF(
         JSON.stringify({
-          envelope_id: messageObject.envelope_id,
+          envelope_id: socketMessage.envelope_id,
         })
       );
+      // Log event
+      console.log(socketMessage.payload.event);
+    } else {
+      // Log Hello message upon connection
+      console.log(socketMessage);
     }
   });
 });
 
+// Connection to Slack
 (async () => {
   try {
     const webSocketURL = await appsConnectionOpen();
