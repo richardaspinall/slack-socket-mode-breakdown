@@ -17,7 +17,7 @@ Further information about socket mode can be found [Intro to Socket Mode](https:
 
 ---
 
-## Install
+## Installation
 
 1. Clone repository and run `npm install`
 2. Create a Slack app and configure as per below
@@ -34,7 +34,7 @@ Further information about socket mode can be found [Intro to Socket Mode](https:
 8. In Slack invite the bot to a channel(enter `/invite @[your-appname]`)
 9. Mention the bot `@[your-appname]` - you should see the event come through on the socket.
 
-#### Scopes
+### Scope requirements
 
 - https://api.slack.com/scopes/connections:write (automatically added when setting up Socket Mode)
 - https://api.slack.com/scopes/app_mentions:read
