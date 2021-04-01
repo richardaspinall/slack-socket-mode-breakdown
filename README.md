@@ -4,9 +4,9 @@
 
 ## Description
 
-This tester app uses the websocket client to handle the connection to the websocket with Slack.
+This tester app showcases a [Socket Mode](https://api.slack.com/apis/connections/socket) connection with Slack via the [WebSocket](https://www.npmjs.com/package/websocket) client.
 
-Further information about socket mode can be found [Intro to Socket Mode](https://api.slack.com/apis/connections/socket)
+Specifically the app will listen to app mentions in a channel that the associated bot is part of and log the event.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ Further information about socket mode can be found [Intro to Socket Mode](https:
 ## Installation
 
 1. Clone repository and run `npm install`
-2. Create a Slack app and configure as per below
+2. Create a Slack app from [here](https://api.slack.com/apps) and configure as per below
 
 ## Slack app configuration
 
@@ -30,7 +30,7 @@ Further information about socket mode can be found [Intro to Socket Mode](https:
 4. Click on the **Event Subscriptions** tab and toggle **Enable Events**
 5. Underneath click **Subscribe to bot events** and click **Add Bot User Event** choosing the `app_mention` event
 6. Click on the **Install App** tab and click through the **Install to Workspace** options
-7. In the project create a `.env` and add a `SOCKETMODE` variable: `SOCKETMODE=xapp-...`
+7. In the project code, create a `.env` file and add a `SOCKETMODE` variable: `SOCKETMODE=xapp-...`
 8. Start the app by running `npm run start`
 9. In Slack invite the bot to a channel(enter `/invite @[your-appname]`)
 10. Mention the bot `@[your-appname]` - you should see the event come through on the socket displayed in your terminal.
