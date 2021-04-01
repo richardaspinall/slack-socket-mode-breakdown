@@ -13,7 +13,7 @@ Further information about socket mode can be found [Intro to Socket Mode](https:
 - Node
 - NPM
 - Nodemon
-- NGROK [resources]()
+- NGROK
 
 ---
 
