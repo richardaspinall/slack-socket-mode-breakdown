@@ -31,8 +31,6 @@ client.on('connectFailed', function (error) {
 
 client.on('connect', function (connection) {
   console.log('WebSocket Client Connected');
-
-  // Log connection closing or errors
   connection.on('error', function (error) {
     console.log('Connection Error: ' + error.toString());
   });
@@ -40,21 +38,24 @@ client.on('connect', function (connection) {
     console.log('echo-protocol Connection Closed');
   });
 
-  // Handle incoming and outgoing messages on the socket
+  // Handle events and interactivity down the socket
   connection.on('message', function (message) {
     const socketMessage = JSON.parse(message.utf8Data);
 
     // Send back envelope_id as acknowledgment
     if (socketMessage.envelope_id) {
-      connection.sendUTF(
+      connection.send(
         JSON.stringify({
           envelope_id: socketMessage.envelope_id,
         })
       );
-      // Log event
-      console.log(socketMessage.payload.event);
+      // Log message from the websocket
+      console.log(socketMessage);
+      /*
+        DO SOME COOL STUFF OFF THE BACK OF THE MESSAGE
+      */
     } else {
-      // Log Hello message upon connection
+      // Hello from Slack – No need to respond
       console.log(socketMessage);
     }
   });
