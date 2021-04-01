@@ -1,5 +1,5 @@
 {
-  "name": "raspinall-socket-mode-tester",
+  "name": "slack-socket-mode-tester",
   "version": "1.0.0",
   "description": "Tester app for socket mode (non-bolt)",
   "main": "app.js",
