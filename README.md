@@ -22,7 +22,7 @@ Specifically the app will listen to app mentions in a channel that the associate
 1. Clone repository and run `npm install`
 2. Create a Slack app from [here](https://api.slack.com/apps) and configure as per below
 
-## Slack app configuration
+### Slack app configuration
 
 1. On your Slack App configuration page, head to the **Socket Mode** tab and toggle **Enable Socket Mode**
 2. Give the app-level token a name of **SOCKETMODE** (or anything you like) and click **Generate**
@@ -32,10 +32,12 @@ Specifically the app will listen to app mentions in a channel that the associate
 6. Click on the **Install App** tab and click through the **Install to Workspace** options
 7. In the project code, create a `.env` file and add a `SOCKETMODE` variable: `SOCKETMODE=xapp-...`
 
-### Scope requirements
+#### Scope requirements
 
 - https://api.slack.com/scopes/connections:write (automatically added when setting up Socket Mode)
 - https://api.slack.com/scopes/app_mentions:read
+
+---
 
 ## Usage
 1. Start the app by running `npm run start`
