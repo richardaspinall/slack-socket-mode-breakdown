@@ -31,13 +31,15 @@ Specifically the app will listen to app mentions in a channel that the associate
 5. Underneath click **Subscribe to bot events** and click **Add Bot User Event** choosing the `app_mention` event
 6. Click on the **Install App** tab and click through the **Install to Workspace** options
 7. In the project code, create a `.env` file and add a `SOCKETMODE` variable: `SOCKETMODE=xapp-...`
-8. Start the app by running `npm run start`
-9. In Slack invite the bot to a channel(enter `/invite @[your-appname]`)
-10. Mention the bot `@[your-appname]` - you should see the event come through on the socket displayed in your terminal.
 
 ### Scope requirements
 
 - https://api.slack.com/scopes/connections:write (automatically added when setting up Socket Mode)
 - https://api.slack.com/scopes/app_mentions:read
+
+## Usage
+1. Start the app by running `npm run start`
+2. In Slack invite the bot to a channel(enter `/invite @[your-appname]`)
+3. Mention the bot `@[your-appname]` - you should see the event come through on the socket displayed in your terminal.
 
 ---
