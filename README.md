@@ -10,7 +10,7 @@ Specifically the app will listen to app mentions in a channel that the associate
 
 ## Requirements
 
-- Node
+- Node v12^
 - NPM
 - Nodemon
 - NGROK
